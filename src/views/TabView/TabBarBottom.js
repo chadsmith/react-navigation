@@ -31,6 +31,7 @@ type Props = {
   position: Animated.Value,
   navigation: NavigationScreenProp<NavigationState, NavigationAction>,
   jumpToIndex: (index: number) => void,
+  getOptions: (scene: TabScene) => object,
   getLabel: (scene: TabScene) => ?(React.Element<*> | string),
   getOnPress: (
     scene: TabScene
@@ -132,6 +133,7 @@ export default class TabBarBottom extends PureComponent<
       position,
       navigation,
       jumpToIndex,
+      getOptions,
       getOnPress,
       activeBackgroundColor,
       inactiveBackgroundColor,
@@ -146,12 +148,13 @@ export default class TabBarBottom extends PureComponent<
         {routes.map((route: NavigationRoute, index: number) => {
           const focused = index === navigation.state.index;
           const scene = { route, index, focused };
+          const options = getOptions(scene);
           const onPress = getOnPress(scene);
           const outputRange = inputRange.map(
             (inputIndex: number) =>
               inputIndex === index
-                ? activeBackgroundColor
-                : inactiveBackgroundColor
+                ? (options.activeBackgroundColor || activeBackgroundColor)
+                : (options.inactiveBackgroundColor || inactiveBackgroundColor)
           );
           const backgroundColor = position.interpolate({
             inputRange,
