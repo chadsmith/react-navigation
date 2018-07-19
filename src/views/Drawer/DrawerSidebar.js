@@ -11,9 +11,7 @@ import invariant from '../../utils/invariant';
  */
 class DrawerSidebar extends React.PureComponent {
   _getScreenOptions = routeKey => {
-    const DrawerScreen = this.props.router.getComponentForRouteName(
-      'DrawerClose'
-    );
+    const DrawerScreen = this.props.router.getComponentForRouteName(this.props.drawerCloseRoute);
     invariant(
       DrawerScreen.router,
       'NavigationComponent with routeName DrawerClose should be a Navigator'
@@ -56,7 +54,7 @@ class DrawerSidebar extends React.PureComponent {
   };
 
   _onItemPress = ({ route, focused }) => {
-    this.props.navigation.navigate('DrawerClose');
+    this.props.navigation.navigate(this.props.drawerCloseRoute);
     if (!focused) {
       let subAction;
       // if the child screen is a StackRouter then always navigate to its first screen (see #1914)

@@ -139,6 +139,7 @@ export default class DrawerView extends React.PureComponent {
       router={this.props.router}
       contentComponent={this.props.contentComponent}
       contentOptions={this.props.contentOptions}
+      drawerCloseRoute={this.props.drawerCloseRoute}
       drawerPosition={this.props.drawerPosition}
       style={this.props.style}
     />
