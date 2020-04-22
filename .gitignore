@@ -1,20 +1,35 @@
-# VSCode
-.vscode/
-jsconfig.json
-
-# IntelliJ/Webstorm
-.idea
-
-# NodeJS
-npm-debug.log
-node_modules
-yarn-error.log
-
-# OS X
 .DS_Store
+.cache
+.vscode
+.idea
+.expo
+.gradle
+.project
+.settings
+.history
 
-# Exponent
-.exponent
+local.properties
 
-# Jest
-coverage
+/coverage/
+/types/
+/dist/
+/lib/
+
+node_modules/
+web-build/
+web-report/
+
+xcuserdata
+generated
+lib
+build
+
+npm-debug.*
+
+*.log
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
